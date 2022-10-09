@@ -2,7 +2,7 @@
 #include "SoftwareSerial.h"
 #include "DFRobotDFPlayerMini.h"
 
-SoftwareSerial mySoftwareSerial(10, 11); // RX, TX
+SoftwareSerial mySoftwareSerial(2, 3); // RX, TX
 DFRobotDFPlayerMini myDFPlayer;
 
 int songnum;
@@ -11,8 +11,9 @@ void setup() {
   // put your setup code here, to run once:
  mySoftwareSerial.begin(9600);
  myDFPlayer.begin(mySoftwareSerial);
- myDFPlayer.volume(10);
- //myDFPlayer.play(17);
+ myDFPlayer.volume(25);
+ 
+// myDFPlayer.play(17);
  Serial.begin(19200);
  
  
