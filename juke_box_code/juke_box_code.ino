@@ -6,10 +6,10 @@
 #include <MFRC522.h>
  
 #define SS_PIN 10
-#define RST_PIN 9
+#define RST_PIN 3
 MFRC522 mfrc522(SS_PIN, RST_PIN);   // Create MFRC522 instance.
 
-SoftwareSerial mySoftwareSerial(2, 3); // RX, TX
+SoftwareSerial mySoftwareSerial(5, 6); // RX, TX
 DFRobotDFPlayerMini myDFPlayer;
 
 int songnum;
@@ -55,12 +55,23 @@ void loop() {
   Serial.println();
   Serial.print("Message : ");
   content.toUpperCase();
-  if (content.substring(1) == "D1 34 D0 32") //change here the UID of the card/cards that you want to give access
+  if (content.substring(1) == "83 9A E4 2A") //change here the UID of the card/cards that you want to give access
   {
-      myDFPlayer.play(7);
+      myDFPlayer.play(15);
   }
- 
- else if (content.substring(1) == "F4 97 02 39")   {
+  if (content.substring(1) == "53 21 53 2A")   {
+      myDFPlayer.play(10);
+  }
+    if (content.substring(1) == "B3 2A D7 2A")   {
+      myDFPlayer.play(12);
+  }
+    if (content.substring(1) == "43 53 C7 29")   {
+      myDFPlayer.play(13);
+  }
+    if (content.substring(1) == "F3 27 CF 29")   {
       myDFPlayer.play(14);
+  }
+    if (content.substring(1) == "C3 64 1B AD")   {
+      myDFPlayer.play(11);
   }
 }
